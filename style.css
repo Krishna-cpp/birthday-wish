@@ -1,0 +1,1006 @@
+/* =========================
+   GLOBAL STYLES & RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #ffd6e8 0%, #ffb3d9 50%, #ffd6e8 100%);
+  background-attachment: fixed;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+.main-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+img {
+  display: block;
+  margin: 20px auto;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================
+   MAGICAL PARTICLES
+========================= */
+
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: float-particle 15s infinite linear;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(100vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   CONFETTI SYSTEM
+========================= */
+
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ff5fa2;
+  animation: confetti-fall 3s linear forwards;
+}
+
+@keyframes confetti-fall {
+  to {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   TITLE SECTION
+========================= */
+
+.title-container {
+  margin: 40px 0 20px;
+  animation: title-entrance 1s ease-out;
+}
+
+@keyframes title-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.main-title {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  background: linear-gradient(45deg, #ff5fa2, #ff8cc5, #ff5fa2);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(36px, 8vw, 72px);
+  text-shadow: 0 4px 20px rgba(255, 95, 162, 0.3);
+  animation: gradient-shift 3s ease infinite;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.sparkle {
+  display: inline-block;
+  animation: sparkle-spin 2s linear infinite;
+  font-size: 0.8em;
+}
+
+@keyframes sparkle-spin {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+}
+
+/* =========================
+   NAME STICKER
+========================= */
+
+.name-container {
+  position: relative;
+  display: inline-block;
+  margin: 20px auto;
+  animation: name-entrance 1.2s ease-out 0.3s backwards;
+}
+
+@keyframes name-entrance {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.name-sticker {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 8px 16px rgba(255, 95, 162, 0.3));
+  max-width: 90%;
+  height: auto;
+}
+
+.name-sticker:hover {
+  transform: scale(1.05) rotate(2deg);
+  filter: drop-shadow(0 12px 24px rgba(255, 95, 162, 0.5));
+}
+
+.name-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 95, 162, 0.3) 0%, transparent 70%);
+  animation: glow-pulse 2s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* =========================
+   SIDE DECORATIONS
+========================= */
+
+.side-decor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.side-sticker {
+  position: absolute;
+  width: 140px;
+  opacity: 0.85;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  will-change: transform;
+}
+
+/* Floating Animation */
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--rotate, 0deg));
+  }
+  50% {
+    transform: translateY(-20px) rotate(calc(var(--rotate, 0deg) + 5deg));
+  }
+}
+
+/* LEFT SIDE */
+.s1 { 
+  top: 120px; 
+  left: 20px; 
+  --rotate: -12deg;
+}
+
+.s2 { 
+  top: 360px; 
+  left: 10px; 
+  --rotate: 8deg;
+}
+
+.s3 { 
+  top: 620px; 
+  left: 15px; 
+  --rotate: -6deg;
+}
+
+/* RIGHT SIDE */
+.s4 { 
+  top: 160px; 
+  right: 20px; 
+  --rotate: 10deg;
+}
+
+.s5 { 
+  top: 420px; 
+  right: 10px; 
+  --rotate: -8deg;
+}
+
+.s6 { 
+  top: 720px; 
+  right: 15px; 
+  --rotate: 6deg;
+}
+
+/* =========================
+   BIRTHDAY STICKERS (TOP)
+========================= */
+
+.birthday-stickers {
+  position: relative;
+  height: 200px;
+  margin: 40px 0;
+}
+
+.birthday {
+  width: 250px;
+  position: absolute;
+  filter: drop-shadow(0 6px 12px rgba(255, 95, 162, 0.2));
+}
+
+.birthday.left {
+  left: 50%;
+  transform: translateX(-280px) rotate(-15deg);
+}
+
+.birthday.right {
+  right: 50%;
+  transform: translateX(280px) rotate(15deg);
+}
+
+.bounce-animation {
+  animation: gentle-bounce 3s ease-in-out infinite;
+}
+
+@keyframes gentle-bounce {
+  0%, 100% {
+    transform: translateX(var(--x, 0)) translateY(0) rotate(var(--rotate, 0deg));
+  }
+  50% {
+    transform: translateX(var(--x, 0)) translateY(-15px) rotate(calc(var(--rotate, 0deg) + 3deg));
+  }
+}
+
+.birthday.left {
+  --x: -280px;
+  --rotate: -15deg;
+}
+
+.birthday.right {
+  --x: 280px;
+  --rotate: 15deg;
+}
+
+/* =========================
+   CAKE + CANDLES
+========================= */
+
+.cake-area {
+  position: relative;
+  width: 360px;
+  margin: 60px auto;
+  animation: cake-entrance 1.5s ease-out 0.5s backwards;
+}
+
+@keyframes cake-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cake-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 60%);
+  animation: cake-glow-pulse 2s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes cake-glow-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+.cake {
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+  position: relative;
+  z-index: 2;
+}
+
+.cake:hover {
+  transform: scale(1.03);
+}
+
+.candles {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-55%);
+  display: flex;
+  gap: 1px;
+  z-index: 3;
+}
+
+.number-candle {
+  height: 90px;
+  width: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.candle-flicker {
+  animation: candle-flicker 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes candle-flicker {
+  from {
+    filter: brightness(1) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  }
+  to {
+    filter: brightness(1.1) drop-shadow(0 4px 12px rgba(255, 215, 0, 0.4));
+  }
+}
+
+/* Flame Effect */
+.flame-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  gap: 50px;
+  pointer-events: none;
+}
+
+.flame {
+  width: 15px;
+  height: 25px;
+  background: radial-gradient(circle at 50% 80%, #ffd700 0%, #ff6b00 40%, transparent 70%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  opacity: 0.9;
+  animation: flame-dance 0.15s ease-in-out infinite alternate;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+.flame-1 {
+  animation-delay: 0s;
+}
+
+.flame-2 {
+  animation-delay: 0.1s;
+}
+
+@keyframes flame-dance {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1.05, 0.95) translateY(-3px);
+  }
+}
+
+.flame.blown-out {
+  animation: flame-blow-out 0.5s ease-out forwards;
+}
+
+@keyframes flame-blow-out {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.5, 0.5) translateX(20px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2, 0.2) translateX(40px);
+  }
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.action-button,
+.photo-button {
+  margin: 30px auto;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ff9acb 0%, #ff7fb8 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Baloo 2', cursive;
+  box-shadow: 0 6px 20px rgba(255, 95, 162, 0.4);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.action-button::before,
+.photo-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.action-button:hover::before,
+.photo-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.action-button:hover,
+.photo-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 95, 162, 0.6);
+}
+
+.action-button:active,
+.photo-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255, 95, 162, 0.4);
+}
+
+.action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button-icon {
+  font-size: 24px;
+  animation: icon-wiggle 1s ease-in-out infinite;
+}
+
+@keyframes icon-wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+}
+
+.button-text {
+  position: relative;
+  z-index: 1;
+}
+
+.pulse-animation {
+  animation: pulse-button 2s ease-in-out infinite;
+}
+
+@keyframes pulse-button {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+/* =========================
+   AGE MESSAGE
+========================= */
+
+.age-message {
+  margin: 40px auto;
+  animation: message-entrance 1s ease-out 1s backwards;
+  max-width: 600px;
+}
+
+@keyframes message-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-text {
+  font-size: clamp(18px, 4vw, 24px);
+  color: #5a2a3c;
+  line-height: 1.8;
+  font-family: 'Baloo 2', cursive;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.wow-text {
+  font-size: 1.4em;
+  background: linear-gradient(45deg, #ff5fa2, #ff8cc5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  display: inline-block;
+  animation: wow-bounce 0.5s ease infinite alternate;
+}
+
+@keyframes wow-bounce {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.age-number {
+  font-size: 1.8em;
+  font-weight: 800;
+  color: #ff5fa2;
+  text-shadow: 0 0 20px rgba(255, 95, 162, 0.6);
+  display: inline-block;
+  animation: number-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes number-glow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(255, 95, 162, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(255, 95, 162, 1);
+  }
+}
+
+.cool-text {
+  color: #ff5fa2;
+  font-weight: 800;
+}
+
+/* =========================
+   PHOTO + MESSAGE SECTION
+========================= */
+
+.photo-area {
+  position: relative;
+  width: 90%;
+  max-width: 700px;
+  min-height: 500px;
+  margin: 80px auto 100px;
+  animation: photo-area-entrance 1.2s ease-out 1.2s backwards;
+}
+
+@keyframes photo-area-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.photo-frame {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  overflow: visible;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  padding: 15px;
+}
+
+.photo {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 12px;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.photo-button {
+  position: absolute;
+  top: 45%;           /* ADJUST THIS: increase = move DOWN, decrease = move UP */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+}
+
+/* Message Text */
+.photo-text {
+  position: absolute;
+  top: 22%;           /* ADJUST THIS: increase = move DOWN, decrease = move UP */
+  left: 20%;          /* ADJUST THIS: increase = move RIGHT, decrease = move LEFT */
+  transform: translateX(0);
+  background: rgba(255, 247, 240, 0.98);
+  backdrop-filter: blur(10px);
+  padding: 18px 16px;
+  border-radius: 16px;
+  width: 56%;         /* ADJUST THIS: increase = wider box, decrease = narrower box */
+  max-height: 52%;    /* ADJUST THIS: limits how tall the box can be */
+  overflow-y: auto;   /* Adds scroll if text is too long */
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #5a2a3c;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  z-index: 20;
+  border: 3px solid rgba(255, 154, 203, 0.3);
+}
+
+.message-header {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 15px;
+  animation: heart-beat 1.5s ease-in-out infinite;
+}
+
+@keyframes heart-beat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.15);
+  }
+}
+
+.message-content p {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.message-content strong {
+  color: #ff5fa2;
+  font-weight: 700;
+}
+
+.signature {
+  margin-top: 25px !important;
+  font-size: 1.1em;
+  color: #ff5fa2;
+}
+
+/* Fade In Animation */
+.fade-in {
+  animation: fadeInMessage 1s ease forwards;
+}
+
+@keyframes fadeInMessage {
+  from {
+    opacity: 0;
+    transform: translateX(0) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+/* =========================
+   ACHIEVEMENT BADGE
+========================= */
+
+.achievement-badge {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  z-index: 10000;
+  text-align: center;
+  font-family: 'Baloo 2', cursive;
+  animation: badge-popup 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  border: 4px solid #ff5fa2;
+}
+
+@keyframes badge-popup {
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.badge-content {
+  font-size: 28px;
+  color: #5a2a3c;
+  font-weight: 800;
+}
+
+.badge-subtitle {
+  font-size: 20px;
+  display: block;
+  margin-top: 8px;
+  color: #ff5fa2;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+  .side-sticker {
+    width: 80px;
+    opacity: 0.7;
+  }
+
+  .s2, .s3, .s5 {
+    display: none;
+  }
+
+  .s1 {
+    top: 80px;
+    left: -10px;
+  }
+
+  .s4 {
+    top: 120px;
+    right: -10px;
+  }
+
+  .s6 {
+    top: 400px;
+    right: -15px;
+  }
+
+  .birthday {
+    width: 180px;
+  }
+
+  .birthday.left {
+    left: -20px;
+    transform: rotate(-10deg);
+  }
+
+  .birthday.right {
+    right: -20px;
+    transform: rotate(10deg);
+  }
+
+  .birthday-stickers {
+    height: 150px;
+  }
+
+  .cake-area {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  .photo-area {
+    min-height: 400px;
+  }
+
+  .photo-frame {
+    height: auto;
+  }
+
+  .photo-text {
+    font-size: 22px;
+    padding: 22px 18px;
+    width: 48%;
+    min-height: 180px;
+  }
+
+  .action-button,
+  .photo-button {
+    padding: 14px 24px;
+    font-size: 16px;
+  }
+
+  .achievement-badge {
+    padding: 20px 25px;
+    width: 90%;
+  }
+
+  .badge-content {
+    font-size: 22px;
+  }
+
+  .badge-subtitle {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 36px;
+  }
+
+  .birthday {
+    width: 140px;
+  }
+
+  .message-text {
+    font-size: 18px;
+  }
+
+  .photo-text {
+    font-size: 20px;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    margin-top: 20px;
+  }
+}
+
+/* =========================
+   PRINT STYLES
+========================= */
+
+@media print {
+  .action-button,
+  .photo-button,
+  .confetti-container,
+  .particles,
+  .side-decor {
+    display: none;
+  }
+
+  body {
+    background: white;
+  }
+}
+/* Music Control Button */
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff9acb, #ff7fb8);
+  border: none;
+  font-size: 42px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 95, 162, 0.3);
+  transition: all 0.3s ease;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.music-control:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 95, 162, 0.5);
+}
+
+.music-control.playing {
+  animation: music-pulse 1s ease-in-out infinite;
+}
+
+@keyframes music-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+/* Made by Krishna Footer */
+.made-by {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-family: 'Caveat', cursive;
+  font-size: 39px;
+  color: rgba(90, 42, 60, 0.6);
+  z-index: 5;
+}

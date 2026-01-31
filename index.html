@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Alisha 🎂</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Caveat:wght@600;700&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Floating Confetti Container -->
+<div class="confetti-container" id="confetti-container"></div>
+
+<!-- Magical Particles Background -->
+<div class="particles" id="particles"></div>
+
+<!-- Side Decorations -->
+<div class="side-decor">
+  <img src="assets/stickers/side-1.png" class="side-sticker s1 float-animation" style="animation-delay: 0s;">
+  <img src="assets/stickers/side-2.png" class="side-sticker s2 float-animation" style="animation-delay: 0.5s;">
+  <img src="assets/stickers/side-3.png" class="side-sticker s3 float-animation" style="animation-delay: 1s;">
+  <img src="assets/stickers/side-4.png" class="side-sticker s4 float-animation" style="animation-delay: 0.3s;">
+  <img src="assets/stickers/side-5.png" class="side-sticker s5 float-animation" style="animation-delay: 0.8s;">
+  <img src="assets/stickers/side-6.png" class="side-sticker s6 float-animation" style="animation-delay: 1.2s;">
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+  
+  <!-- Title with Sparkle Effect -->
+  <div class="title-container">
+    <h1 class="main-title">
+      <span class="sparkle">✨</span>
+      Happy Birthday
+      <span class="sparkle">✨</span>
+    </h1>
+  </div>
+
+  <!-- Name Sticker with Glow -->
+  <div class="name-container">
+    <img src="assets/stickers/alisha-name.png" class="name-sticker" id="name-sticker">
+    <div class="name-glow"></div>
+  </div>
+
+  <!-- Birthday Stickers -->
+  <div class="birthday-stickers">
+    <img src="assets/stickers/birthday.png" class="birthday left bounce-animation">
+    <img src="assets/stickers/birthday.png" class="birthday right bounce-animation">
+  </div>
+
+  <!-- Cake Section -->
+  <div class="cake-area">
+    <div class="cake-glow"></div>
+    <img src="assets/stickers/cake.png" class="cake" id="cake">
+    
+    <div class="candles" id="candles">
+      <img src="assets/stickers/2.png" class="number-candle candle-flicker" id="candle-2">
+      <img src="assets/stickers/0.png" class="number-candle candle-flicker" id="candle-0">
+    </div>
+    
+    <!-- Candle Flame Effect -->
+    <div class="flame-container" id="flame-container">
+      <div class="flame flame-1"></div>
+      <div class="flame flame-2"></div>
+    </div>
+  </div>
+
+  <!-- Blow Button with Better Design -->
+  <button id="blow-btn" class="action-button pulse-animation">
+    <span class="button-icon">💨</span>
+    <span class="button-text">Blow the Candles</span>
+  </button>
+
+  <!-- Age Message with Animation -->
+  <div class="age-message" id="age-message">
+    <p class="message-text">
+      <span class="wow-text">WOAHH</span> NO WAY! 
+      <br>
+      You're turning <span class="age-number">20</span>! 
+      <br>
+      <span class="cool-text">KITNA COOL AGE HAIII! 🎉</span>
+    </p>
+  </div>
+
+  <!-- Photo Message Section -->
+  <div class="photo-area">
+    <div class="photo-frame">
+      <img src="assets/stickers/photo-1.png" id="photo-1" class="photo">
+      <img src="assets/stickers/photo-2.png" id="photo-2" class="photo hidden">
+    </div>
+
+    <button id="photo-btn" class="photo-button pulse-animation">
+      <span class="button-icon">😚</span>
+      <span class="button-text">Open Your Message</span>
+    </button>
+
+    <div id="photo-text" class="photo-text hidden">
+      <div class="message-header">HIEEEEE</div>
+      <div class="message-content">
+        <p><strong>happy birthday 🤍</strong></p>
+        <p>you genuinely make things feel lighter<br>just by being around.</p>
+        <p>i hope today gives you even<br>a fraction of the warmth<br>you give others.</p>
+        <p class="signature"><strong>HBD CUTU!!! 🎂✨</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Secret Achievement Badge -->
+  <div class="achievement-badge hidden" id="achievement">
+    <div class="badge-content">
+      🏆 Achievement Unlocked!
+      <br>
+      <span class="badge-subtitle">Secret Found!</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Audio Elements -->
+<audio id="whoosh-sound" src="assets/whoosh.mp3"></audio>
+<audio id="blow-sound" preload="auto">
+  <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBgoOEhYaHiImKi4yNjo+QkZKTlJWWl5iZmpucnZ6foKGio6SlpqeoqaqrrK2ur7CxsrO0tba3uLm6u7y9vr/AwcLDxMXGx8jJysvMzc7P0NHS09TV1tfY2drb3N3e3+Dh4uPk5ebn6Onq6+zt7u/w8fLz9PX29/j5+vv8/f7/AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+P0BBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWltcXV5fYGFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6e3x9fn+AgYKDhIWGh4iJiouMjY6PkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaanqKmqq6ytrq+wsbKztLW2t7i5uru8vb6/wMHCw8TFxsfIycrLzM3Oz9DR0tPU1dbX2Nna29zd3t/g4eLj5OXm5+jp6uvs7e7v8PHy8/T19vf4+fr7/P3+/w==" type="audio/wav">
+</audio>
+<!-- Background Music -->
+<audio id="bgm" loop>
+  <source src="assets/background-music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Music Control Button -->
+<button id="music-toggle" class="music-control" title="Toggle Music">
+  🎵
+</button>
+<!-- Made by Krishna -->
+<footer class="made-by">
+  made by krishna 🤍
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
