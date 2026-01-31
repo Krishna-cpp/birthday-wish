@@ -722,14 +722,14 @@ img {
 /* Message Text */
 .photo-text {
   position: absolute;
-  top: 22%;           /* ADJUST THIS: increase = move DOWN, decrease = move UP */
+  top: 20%;           /* ADJUST THIS: increase = move DOWN, decrease = move UP */
   left: 20%;          /* ADJUST THIS: increase = move RIGHT, decrease = move LEFT */
   transform: translateX(0);
   background: rgba(255, 247, 240, 0.98);
   backdrop-filter: blur(10px);
   padding: 18px 16px;
   border-radius: 16px;
-  width: 56%;         /* ADJUST THIS: increase = wider box, decrease = narrower box */
+  width: 58%;         /* ADJUST THIS: increase = wider box, decrease = narrower box */
   max-height: 52%;    /* ADJUST THIS: limits how tall the box can be */
   overflow-y: auto;   /* Adds scroll if text is too long */
   font-family: 'Caveat', cursive;
