@@ -205,13 +205,13 @@ document.addEventListener("DOMContentLoaded", () => {
       createHeartParticles(nameSticker);
 
       if (nameClickCount === 1) {
-        showCustomAlert("hey you 🌷", 2000);
+        showCustomAlert("hey lol 🌷", 2000);
+      } else if (nameClickCount === 2) {
+        showCustomAlert("hope youre doing muchhh betterr now! 💕", 2000);
       } else if (nameClickCount === 3) {
-        showCustomAlert("you're clicking a lot! 💕", 2000);
-      } else if (nameClickCount === 5) {
-        showCustomAlert("okay that's enough clicking 😄", 2500);
+        showCustomAlert("okay that's enough clicking, ek aur baar mat karna 😄", 2500);
         createConfetti(30);
-      } else if (nameClickCount >= 7) {
+      } else if (nameClickCount >= 4) {
         showCustomAlert("alright alright! you found a secret! 🎉", 3000);
         showAchievement();
         nameClickCount = 0; // Reset
@@ -320,10 +320,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (cakeClickCount === 1) {
         showCustomAlert("kaisa hai cake? 🎂", 2000);
       } else if (cakeClickCount === 3) {
-        showCustomAlert("it's a delicious cake! 😋", 2000);
+        showCustomAlert("aap toh cake murderer nikle 😋", 2000);
         createConfetti(20);
       } else if (cakeClickCount === 5) {
-        showCustomAlert("stop poking the cake! 😄", 2500);
+        showCustomAlert("bohot hii yummy hai i think! 😄", 2500);
       } else if (cakeClickCount >= 7) {
         showCustomAlert("fine, you can have an extra slice! 🍰", 3000);
         showAchievement("Cake Lover!");
